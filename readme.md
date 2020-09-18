@@ -5,7 +5,7 @@
 Acciones:
 > Se monta en flask un chatbot con aprendizaje profundo
 
-** septiembre 18, 2020 **
+**septiembre 18, 2020**
 
 ```
 { dev : osfe.monster }
