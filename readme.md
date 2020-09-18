@@ -7,8 +7,8 @@ Acciones:
 
 ** septiembre 18, 2020 **
 
-´´´
-{ to : do }
-´´´
+```
+{ dev : osfe.monster }
+```
 
 by [reyqueson](http://twitter.com/reyqueson)
