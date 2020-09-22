@@ -1,0 +1,45 @@
+{%extends "layout.html" %}
+
+{% block content %}
+<div id="chatbox" class="container">
+  <div id="messages"></div>
+</div>
+  <input id="myMessage" type="text" class="say">
+  <button id="send" class="send">Send</button>
+
+<script>
+  const socket = io()
+  socket.emit('message', '<me><b>welcome : </b>hello' + '<time>'+ getFukinTime() +'</time></me>')
+  socket.on('message', function(msg) {
+    $('#messages').append( msg )
+    putbottom();
+  })
+  
+  $('#send').on('click', function() {
+    fukinMessage = '<me><b>tú : </b>' + $('#myMessage').val() + '<time>'+ getFukinTime() +'</time></me>';
+    socket.send(fukinMessage);
+    $('#myMessage').val('');
+  })
+  
+  var input = document.getElementById('myMessage');
+  input.addEventListener('keyup', function(event) {
+    if (event.keyCode === 13) {
+      document.getElementById('send').click();
+    }
+  });
+  
+  // div to scrollHeight
+  function putbottom(){
+    var objDiv = document.getElementById("chatbox");
+    objDiv.scrollTop = objDiv.scrollHeight + 1000;
+  }
+  
+  </script>
+
+  <!-- neural  -->
+  <canvas id=c></canvas>
+  <script src="{{ url_for('static', filename='js/neural.js')}}"></script>
+    
+
+
+{% endblock %}

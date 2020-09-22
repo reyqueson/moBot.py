@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Economica&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Economica', sans-serif;
+    font-size: 18px;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 30vw;
+    z-index: -1;
+    }
+
+h1 {
+    font-size: 45px;
+    color: #fff;
+}
+body {
+    color: #111111;
+    /*background: linear-gradient(to right, #57c1eb 0%, #246fa8 100%);*/
+    background: #111111;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+.container {
+    min-width: 200px;
+    max-width: 600px;
+    width: 50vw;
+    max-height: 500px;
+    height: 70vh;
+    background: #ffffff05;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto;
+    
+}
+.blankbox {
+    display: block;
+}
+
+.send {
+    height: 3em;
+    width: 10%;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 0 0 0 5px;
+}
+.say {
+    width: 80%;
+    height: 2em;
+    border-radius: 8px;
+    padding: 10px;
+}
+me, .bubble {
+    -webkit-box-shadow: 5px 5px 30px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 30px 5px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 30px 5px rgba(0,0,0,0.75);
+    background:#a6fbff;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    width: fit-content;
+    /*min-width: 250px;*/
+    margin-left: 40%;
+    display: block;
+    float: right;
+}
+bot, .bubbleBot {
+    -webkit-box-shadow: 5px 5px 30px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 30px 5px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 30px 5px rgba(0,0,0,0.75);
+    background:#114bb8;
+    color: #ffffff;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    width: fit-content;
+    /*min-width: 250px;*/
+    margin-left: 0%;
+    display: block;
+    float: left;
+}
+time {
+    display: inline-block;
+    margin: 0 5px 0 50px;
+    font-size: 9px;
+    color: #222324;
+
+}
+
+/*
+ *  chatbox
+ */
+
+#chatbox {
+    
+}
+
+ #chatbox::-webkit-scrollbar-track
+ {
+     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+     background-color: #2b2c3126;
+ }
+ 
+ #chatbox::-webkit-scrollbar
+ {
+     width: 6px;
+     background-color: #22232494;
+ }
+ 
+ #chatbox::-webkit-scrollbar-thumb
+ {
+     background-color: #1d2d6d94;
+ }
+ 

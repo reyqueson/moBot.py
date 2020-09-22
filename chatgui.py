@@ -73,13 +73,21 @@ socketio = SocketIO(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('home.html')
+
+@app.route('/neural')
+def neural():
+    return render_template('neural.html')
 
 @socketio.on('message')
 def handleMessage(msg):
-    print('Message: ' + msg)    
+    print('Message: ' + msg)
+    #person 
     send(msg, broadcast = True)
-    send(chatbot_response(msg))
+    #bot
+    chatbotresponde = chatbot_response(msg)
+    send('<bot><b>moBot : </b>' + chatbotresponde + '</bot>', broadcast = True) 
+    print('moBot: ' + chatbotresponde)
 
 if __name__ == '__main__':
     socketio.run(app)

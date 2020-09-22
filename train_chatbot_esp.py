@@ -1,6 +1,14 @@
 import nltk
-from nltk.stem import WordNetLemmatizer
-lemmatizer = WordNetLemmatizer()
+#from nltk.stem import WordNetLemmatizer
+#lemmatizer = WordNetLemmatizer()
+
+from nltk.stem import SnowballStemmer
+#from nltk.stem import PorterStemmer
+#from nltk.stem import WordNetLemmatizer
+
+
+lemmatizer = SnowballStemmer('spanish')
+
 import json
 import pickle
 
@@ -17,7 +25,6 @@ ignore_words = ['?', '!']
 data_file = open('intents.json').read()
 intents = json.loads(data_file)
 
-
 for intent in intents['intents']:
     for pattern in intent['patterns']:
 
@@ -32,7 +39,7 @@ for intent in intents['intents']:
             classes.append(intent['tag'])
 
 # lemmaztize and lower each word and remove duplicates
-words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words]
+words = [lemmatizer.stem(w.lower()) for w in words if w not in ignore_words]
 words = sorted(list(set(words)))
 # sort classes
 classes = sorted(list(set(classes)))
@@ -42,7 +49,6 @@ print (len(documents), "documents")
 print (len(classes), "classes", classes)
 # words = all words, vocabulary
 print (len(words), "unique lemmatized words", words)
-
 
 pickle.dump(words,open('words.pkl','wb'))
 pickle.dump(classes,open('classes.pkl','wb'))
@@ -58,7 +64,7 @@ for doc in documents:
     # list of tokenized words for the pattern
     pattern_words = doc[0]
     # lemmatize each word - create base word, in attempt to represent related words
-    pattern_words = [lemmatizer.lemmatize(word.lower()) for word in pattern_words]
+    pattern_words = [lemmatizer.stem(word.lower()) for word in pattern_words]
     # create our bag of words array with 1, if word match found in current pattern
     for w in words:
         bag.append(1) if w in pattern_words else bag.append(0)
@@ -68,7 +74,7 @@ for doc in documents:
     output_row[classes.index(doc[1])] = 1
     
     training.append([bag, output_row])
-    
+
 # shuffle our features and turn into np.array
 random.shuffle(training)
 training = np.array(training)
@@ -95,4 +101,7 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
 model.save('chatbot_model.h5', hist)
 
-print("model created")
+print("fukinModel created")
+
+#spanish_stemmer = SnowballStemmer('spanish')
+#print(spanish_stemmer.stem("trabajando"))
