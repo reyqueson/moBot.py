@@ -1,53 +1,57 @@
 {"intents": [
-        {"tag": "saludo",
-         "patterns": ["Hola", "Hey", "Hello"],
-         "responses": ["Hola, como estas?", "Es bueno verte por aca otra vez", "Que tal, en que puedo ayudarte?"],
-         "context": [""]
-        },
-        {"tag": "fukinmak",
-         "patterns": ["lol", "jajaja", "jijiji"],
-         "responses": ["Tu risa me recuerda a alguien, jajaja", "El que solo se rie de sus maldades se acuerda"],
-         "context": [""]
-        },
-        {"tag": "ok",
-                "patterns": ["ok", "oka", "okas"],
-                "responses": ["ok que", "okas mis polainas! no te entiendo! LOL :)"],
-                "context": [""]
-        },
-        {"tag": "siri",
-                "patterns": ["siri", "conoces a siri", "eres como siri", "alexa", "google"],
-                "responses": ["moBot aunque te cueste trabajo! ;)"],
-                "context": [""]
-        },
-        {"tag": "nombre",
-                "patterns": ["como te llamas", "quien eres", "cual es tu nombre"],
-                "responses": ["moBot", "soy moBot, vengo del futuro y tengo la formula de la felicidad"],
-                "context": [""]
-        },
-        {"tag": "despedida",
-         "patterns": ["Bye", "Adios", "Goodbye", "Un placer, bye", "Hasta la proxima"],
-         "responses": ["adios!", "Que tengas buen dia", "Bye! Vuelve pronto"],
-         "context": [""]
-        },
-        {"tag": "gracias",
-         "patterns": ["Gracias", "thks", "Thanks", "Thank you", "Es todo", "Gracias por ayudarme"],
-         "responses": ["Encantado de ayudar!", "Cuando quieras!", "Un placer"],
-         "context": [""]
-        },
-        {"tag": "opciones",
-         "patterns": ["Podrias ayudarme", "Que haces", "En que puedes ayudar", "Que soporte me ofreces"],
-         "responses": ["Puedo ayudarte a solucionar tu vida!"],
-         "context": [""]
-        },
-        {"tag": "boss",
-                "patterns": ["quien es el jefe", "como se llama el jefe", "quien es el dti", "dti osfe"],
-                "responses": ["Master Boss José Augusto 🤘"],
-                "context": [""]
-               },
-        {"tag": "norespuesta",
-                "patterns": [],
-                "responses": ["Sorry, no puedo entenderte", "Please, dame mas información", "No estoy seguro de comprender"],
-                "context": [""]
-               }
-   ]
-}
+    {"tag": "saludo",
+     "patterns": ["Hola", "Hey", "Hello", "ola", "ola ke ase"],
+     "responses": ["Hola!, ¿cómo estás?", "Es bueno verte por acá otra vez", "¿Qué tal?, ¿en qué puedo ayudarte?", "A tus órdenes ¿Para qué soy bueno?"],
+     "context": [""]
+    },
+    {"tag": "fukinmak",
+     "patterns": ["lol", "jajaja", "jijiji"],
+     "responses": ["Tu risa me recuerda a alguien, jajaja 😂", "😂 El que solo se ríe de sus maldades se acuerda", "Las ilusiones pueden ser muy poderosas", "Nadie es perfecto"],
+     "context": [""]
+    },
+    {"tag": "ok",
+            "patterns": ["ok", "oka", "okas", "ya", "yap", "bueno"],
+            "responses": ["ok que", "okas mis polainas! no te entiendo! 😖", "dime más", "buen punto"],
+            "context": [""]
+    },
+    {"tag": "siri",
+            "patterns": ["siri", "conoces a siri", "eres como siri", "alexa", "google"],
+            "responses": ["moBot 🤖 aunque te cueste trabajo!", "lamento tus fijaciones con los bots sin inteligencia 🤣", "Houston, tenemos un problema!", "¿Me estás hablando a mí?"],
+            "context": [""]
+    },
+    {"tag": "nombre",
+            "patterns": ["como te llamas", "quien eres", "cual es tu nombre"],
+            "responses": ["moBot 🤖", "soy moBot 🤖, vengo del futuro y tengo la fórmula de la felicidad", "moBot 🤖 master of your old fashioned sky!"],
+            "context": [""]
+    },
+    {"tag": "despedida",
+     "patterns": ["Bye", "Adios", "Goodbye", "Un placer, bye", "Hasta la proxima"],
+     "responses": ["adiós!", "Que tengas buen día", "Bye! Vuelve pronto"],
+     "context": [""]
+    },
+    {"tag": "gracias",
+     "patterns": ["Gracias", "thks", "Thanks", "Thank you", "Es todo", "Gracias por ayudarme", "bueno"],
+     "responses": ["Encantado de ayudar!", "Cuando quieras!", "Un placer"],
+     "context": [""]
+    },
+    {"tag": "ayuda",
+     "patterns": ["Podrias ayudarme", "Que haces", "En que puedes ayudar", "Que soporte me ofreces"],
+     "responses": ["Puedo ayudarte a solucionar tu vida!", "No existen preguntas sin respuesta, solo preguntas mal formuladas"],
+     "context": [""]
+    },
+    {"tag": "osfe",
+            "patterns": ["dti", "jefe dti osfe"],
+            "responses": ["El flamante 🤘"],
+            "context": [""]
+           },
+    {"tag": "dejavu",
+        "patterns": ["Me puedes dar un consejo", "dame un consejo"],
+        "responses": ["DejaVu"],
+        "context": [""]
+        },   
+    {"tag": "noanswer",
+            "patterns": [],
+            "responses": ["Estoy exactamente donde quiero estar", "Sorry, no puedo entenderte", "Please, dame mas información", "No estoy seguro de comprender", "No existen preguntas sin respuesta, solo preguntas mal formuladas", "Me he subido a mi mesa para recordarme que siempre hay que mirar las cosas de un modo diferente"],
+            "context": [""]
+           }
+]}

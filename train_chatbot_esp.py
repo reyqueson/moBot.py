@@ -22,7 +22,7 @@ words=[]
 classes = []
 documents = []
 ignore_words = ['?', '!']
-data_file = open('intents.json').read()
+data_file = open('intents.json', encoding='utf-8').read()
 intents = json.loads(data_file)
 
 for intent in intents['intents']:
