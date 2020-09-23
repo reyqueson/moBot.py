@@ -31,3 +31,12 @@ print(json_spa)
 
 # this is the rocks! ------------------------------------  
 data_file = open('intents.json', encoding='utf-8').read()
+
+# beautifulsoup
+from bs4 import BeautifulSoup
+mess = "<me><b>tú : </b><m>ok</m><time>1:11.54p.m.</time></me>"
+j = json.dumps(mess, ensure_ascii=False)
+print(json.loads(j))
+soup = BeautifulSoup(mess, features="html.parser")
+print(soup.m.string)
+#tags = soup('me')

@@ -1,3 +1,7 @@
+from tinydb import TinyDB, Query
+db = TinyDB('db.json')
+from bs4 import BeautifulSoup
+
 import nltk
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
@@ -81,13 +85,24 @@ def neural():
 
 @socketio.on('message')
 def handleMessage(msg):
-    print('Message: ' + msg)
+    
     #person 
     send(msg, broadcast = True)
+    print('Message: ' + msg)
+    
+    #db
+    msgcode = json.dumps(msg, ensure_ascii=False)
+    soup = BeautifulSoup(msgcode, features="html.parser")
+    botMind = soup.m.string
+    print('msgDB : ', botMind)
+    db.insert( {'ask' : botMind} )
+    #db.insert({ 'botMind' : botMind })
+
     #bot
     chatbotresponde = chatbot_response(msg)
-    send('<bot><b>moBot : </b>' + chatbotresponde + '</bot>', broadcast = True) 
+    send('<bot><b>moBot : </b><m>' + chatbotresponde + '</m></bot>', broadcast = True) 
     print('moBot: ' + chatbotresponde)
+
 
 if __name__ == '__main__':
     socketio.run(app)
