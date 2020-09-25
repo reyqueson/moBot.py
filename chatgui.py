@@ -1,5 +1,6 @@
 from tinydb import TinyDB, Query
-db = TinyDB('db.json')
+#db = TinyDB('db.json')
+db = TinyDB(str('db.json'), ensure_ascii=False)
 from bs4 import BeautifulSoup
 
 import nltk
@@ -86,7 +87,7 @@ def neural():
 @socketio.on('message')
 def handleMessage(msg):
     
-    #person 
+    #person send
     send(msg, broadcast = True)
     print('Message: ' + msg)
     
@@ -94,14 +95,16 @@ def handleMessage(msg):
     msgcode = json.dumps(msg, ensure_ascii=False)
     soup = BeautifulSoup(msgcode, features="html.parser")
     botMind = soup.m.string
-    print('msgDB : ', botMind)
-    db.insert( {'ask' : botMind} )
+    db.insert( { 'ask' : botMind } )
+    print('msgDB ask : ', botMind)
     #db.insert({ 'botMind' : botMind })
 
     #bot
     chatbotresponde = chatbot_response(msg)
-    send('<bot><b>moBot : </b><m>' + chatbotresponde + '</m></bot>', broadcast = True) 
+    send('<bot><b>moBot : </b><m>' + chatbotresponde + '</m></bot>', broadcast = True)
+    db.insert( { 'answer' : chatbotresponde } )
     print('moBot: ' + chatbotresponde)
+    #---------------------- mission: escribir en json en utf-8 sin asccii error ------------------------------
 
 
 if __name__ == '__main__':

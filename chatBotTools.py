@@ -40,3 +40,11 @@ print(json.loads(j))
 soup = BeautifulSoup(mess, features="html.parser")
 print(soup.m.string)
 #tags = soup('me')
+
+# ---  qna knowledge + tsv to json ------------------------
+witty = open('witty.json', encoding='utf-8').read()
+extracto = json.loads(witty)
+print(extracto)
+
+# -----------------   mission : jueves para viernes 240920 extraer datos de json qna para alimentar el dataset del moBot ----------------
+# tsv a json en progreso viernes
