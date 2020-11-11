@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
+import codecs
 from tinydb import TinyDB, Query
 #db = TinyDB('db.json')
-db = TinyDB(str('db.json'), ensure_ascii=False)
+db = TinyDB(str('db.json'), ensure_ascii=False, encoding='utf-8')
 from bs4 import BeautifulSoup
 
 import nltk
@@ -100,11 +102,10 @@ def handleMessage(msg):
     #db.insert({ 'botMind' : botMind })
 
     #bot
-    chatbotresponde = chatbot_response(msg)
-    send('<bot><b>moBot : </b><m>' + chatbotresponde + '</m></bot>', broadcast = True)
-    db.insert( { 'answer' : chatbotresponde } )
-    print('moBot: ' + chatbotresponde)
-    #---------------------- mission: escribir en json en utf-8 sin asccii error ------------------------------
+    b = chatbot_response(msg)
+    send('<bot><b>moBot : </b><m>' + b + '</m></bot>', broadcast = True)
+    db.insert( { 'answer' : b } )
+    print('moBot: ' + b )
 
 
 if __name__ == '__main__':

@@ -1,9 +1,11 @@
 {%extends "layout.html" %}
 
 {% block content %}
+<winwhere>OSFE / DTI / UIUX / moBot.py { da chatbot prototype }</winwhere>
 <div id="chatbox" class="container">
   <div id="messages"></div>
 </div>
+  <prompt> # > </prompt>
   <input id="myMessage" type="text" class="say">
   <button id="send" class="send">Send</button>
 
@@ -16,7 +18,7 @@
   })
   
   $('#send').on('click', function() {
-    fukinMessage = '<me><b>tú : </b><m>' + $('#myMessage').val() + '</m><time>'+ getFukinTime() +'</time></me>';
+    fukinMessage = '<me><b>human : </b><m>' + $('#myMessage').val() + '</m><time>'+ getFukinTime() +'</time></me>';
     socket.send(fukinMessage);
     $('#myMessage').val('');
   })
@@ -32,7 +34,16 @@
   function putbottom(){
     var objDiv = document.getElementById("chatbox");
     objDiv.scrollTop = objDiv.scrollHeight + 1000;
+    
   }
+
+  // auto focus
+  window.onload = function() {
+    document.getElementById("myMessage").focus();
+  };
+
+  // aladin
+
   
   </script>
 

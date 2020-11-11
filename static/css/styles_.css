@@ -17,16 +17,6 @@ h1 {
     font-size: 45px;
     color: #fff;
 }
-winwhere {
-    color: #3095ff;
-    margin: 8px 35px;
-    display: inline-block;
-}
-prompt {
-    color: #4fff38;
-    display: inline-block;
-}
-
 body {
     color: #111111;
     /*background: linear-gradient(to right, #57c1eb 0%, #246fa8 100%);*/
@@ -35,20 +25,20 @@ body {
     place-items: center;
     overflow: hidden;
 }
-.blankbox {
-    display: block;
-}
 .container {
-    width: 90vw;
-    max-height: 75vh;
+    min-width: 200px;
+    max-width: 600px;
+    width: 50vw;
+    max-height: 500px;
+    height: 70vh;
     background: #ffffff05;
     border-radius: 10px;
     padding: 20px;
     overflow-y: auto;
-    display: grid;
+    
 }
-#messages {
-    display: inline-block;
+.blankbox {
+    display: block;
 }
 
 .send {
@@ -57,70 +47,48 @@ body {
     border-radius: 7px;
     padding: 10px;
     margin: 0 0 0 5px;
-    background: #212121;
-    border: black;
-    color: silver;
-}
-.say:focus {
-    outline: none !important;
 }
 .say {
     width: 80%;
     height: 2em;
     border-radius: 8px;
     padding: 10px;
-    background: #191818;
-    border: black;
-    color: #4fff38;
-    margin: 5px 0;
 }
 me, .bubble {
     -webkit-box-shadow: 5px 5px 30px 5px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 5px 30px 5px rgba(0,0,0,0.75);
     box-shadow: 5px 5px 30px 5px rgba(0,0,0,0.75);
-    background:#212121;
-    color: #4fff38;
+    background:#a6fbff;
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
     width: fit-content;
-    cursor: pointer;
     /*min-width: 250px;*/
+    margin-left: 40%;
+    display: block;
+    float: right;
 }
 bot, .bubbleBot {
     -webkit-box-shadow: 5px 5px 30px 5px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 5px 30px 5px rgba(0,0,0,0.75);
     box-shadow: 5px 5px 30px 5px rgba(0,0,0,0.75);
-    background:#222222;
-    color: #3095ff;
+    background:#114bb8;
+    color: #ffffff;
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
     width: fit-content;
-    cursor: pointer;
     /*min-width: 250px;*/
+    margin-left: 0%;
+    display: block;
+    float: left;
 }
 time {
     display: inline-block;
     margin: 0 5px 0 50px;
     font-size: 9px;
-    color: #505a64;
+    color: #222324;
 
-}
-
-m, b {
-    font-size: inherit;
-}
-me, bot {
-    display: inline-block;
-    transition: all 1.2s;
-    z-index: 1;
-}
-.aladin, me:hover, bot:hover {
-    font-size: 45px;
-    transition: 0.8s;
-    display: unset;
-    z-index: 2;
 }
 
 /*
@@ -128,7 +96,7 @@ me, bot {
  */
 
 #chatbox {
-    scrollbar-width: none;
+    
 }
 
  #chatbox::-webkit-scrollbar-track

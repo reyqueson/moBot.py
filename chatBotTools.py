@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import json, simplejson
 import sys, codecs, locale
 import nltk
@@ -42,9 +44,27 @@ print(soup.m.string)
 #tags = soup('me')
 
 # ---  qna knowledge + tsv to json ------------------------
-witty = open('witty.json', encoding='utf-8').read()
+witty = open('intents_mak.json', encoding='utf-8').read()
 extracto = json.loads(witty)
 print(extracto)
 
 # -----------------   mission : jueves para viernes 240920 extraer datos de json qna para alimentar el dataset del moBot ----------------
 # tsv a json en progreso viernes
+
+import codecs
+from tinydb import TinyDB, Query
+#db = TinyDB('db.json')
+db = TinyDB(str('db.json'), ensure_ascii=False, encoding='utf-8') #this is da clue inicode 😂
+
+chatbotresponde = '😂 El que solo se ríe de sus maldades se acuerda jajaja 😂😂😂'
+print('raw: ', chatbotresponde)
+b = chatbotresponde.encode('utf-8')
+print('encode: ', b)
+b = b.decode('utf-8')
+print('decode: ', b)
+#print('string unicode : ', str(unicode(b)) )
+print('<bot><b>moBot : </b><m>' + b + '</m></bot>')
+db.insert( { 'answer' : u"😂 El que solo se ríe de sus maldades se acuerda" } )
+datajson = { 'datajson' : b }
+d = json.dumps(datajson, ensure_ascii=False)
+db.insert(datajson)
